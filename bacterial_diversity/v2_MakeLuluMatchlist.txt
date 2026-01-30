@@ -1,0 +1,4 @@
+
+cd ../data/zOTU_building
+makeblastdb -in ../../results/dada_results/ASVs_fasta.fa -out zOTU_building -parse_seqids -dbtype nucl
+blastn -db zOTU_building -num_threads 8 -outfmt '6 qseqid sseqid pident' -out ASV_matchlist.txt -qcov_hsp_perc .90 -perc_identity .84 -query ../../results/dada_results/ASVs_fasta.fa
